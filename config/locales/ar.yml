@@ -1,0 +1,27 @@
+ar:
+  activerecord:
+    models:
+      post: "منشور"
+    attributes:
+      post:
+        title: "عنوان"
+        content: "محتوى"
+        status: "الحالة"
+        draft: "مسودة"
+        waiting: "قيد الانتظار"
+        published: "تم نشرها"
+        image: "صورة"
+        type: "نوع المنشور"
+  global:
+    navbar:
+      alzahidi_company: "الزاهدي تك "
+      home: "الصفحة الرئيسية"
+      products: "منتجاتنا"
+      services: "خدماتنا"
+      projects: "مشاريعنا"
+      contact_us: "تواصل معنا"
+      about_us: "من نحن"
+      ar: "عربي"
+      en: "انجليزي"
+      language: اللغة
+  hello: "مرحبا ايها العالم"

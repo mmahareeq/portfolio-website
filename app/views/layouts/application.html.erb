@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <% if I18n.locale == :ar %>
+    <style>
+      body {
+        direction: rtl;
+      }
+    </style>
+  <% end %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
-    
+  <%= render partial: "shared/header" %>
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
     <% end %>

@@ -12,21 +12,35 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label :title_ar ,class: "form-label" %>
+    <%= form.text_field :title_ar , class: "form-control"%>
+  </div>
+  <div>
+  <%= form.label :title_en,class: "form-label" %>
+  <%= form.text_field :title_en , class: "form-control"%>
+</div>
+  <div class="field">
+    <%= form.label :content_ar, class: "form-label" %>
+    <%= form.rich_text_area :content_ar, class: "form-control" %>
+  </div>
+  <div class="field">
+  <%= form.label :content_en, class: "form-label" %>
+  <%= form.rich_text_area :content_en, class: "form-control" %>
+</div>
+  <div>
+    <%= form.label :type, class: "form-label" %>
+    <%= form.select :post_type, [ 'Product', 'project', 'service'] , class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type %>
+    <%= form.label :status, class: "form-label"%>
+    <%= form.select :status, [ 'draft', 'waiting', 'published'], class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+  <div class="field mb-2">
+      <%= form.label :image, class: "form-label" %>
+      <%= form.file_field :image, class: "form-control" %>
   </div>
-
   <div>
-    <%= form.submit %>
+    <%= form.submit "create post"%>
   </div>
 <% end %>

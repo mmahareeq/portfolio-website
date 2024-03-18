@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    render
   end
 
   # GET /posts/1 or /posts/1.json
@@ -21,8 +22,9 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user
+    puts params
+    @post = Post.create(post_params)
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
@@ -65,6 +67,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :type, :status)
+      params.require(:post).permit(:title_ar, :title_en, :content_ar, :content_en, :post_type, :status, :image)
     end
 end
