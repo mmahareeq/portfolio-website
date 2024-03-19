@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+   
+  devise_for :users, controllers: {
+  registrations: 'users/registrations'
+}
   
-  resources :posts
+  resources :posts do
+    member do
+      patch :change_status
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,4 +17,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+
+  post '/set_language', to: 'application#set_language', as: :set_language
+
 end

@@ -24,4 +24,9 @@ ar:
       ar: "عربي"
       en: "انجليزي"
       language: اللغة
+    post:
+      back_to_posts: "الرجوع"
+      edit: "تعديل"
+      delete: "حذف"
+      published_this_post: "نشر هذا المنشور"
   hello: "مرحبا ايها العالم"

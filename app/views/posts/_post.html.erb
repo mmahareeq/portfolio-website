@@ -1,17 +1,21 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
 
-  <p>
-    <strong>Type:</strong>
-    <%= post.type %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= post.status %>
-  </p>
-
-</div>
+<div class="card post-card" style="width:280px;" id="<%= dom_id post %>">    
+    <% if @post && @post.image.attached? %>
+      <%= image_tag @post.image , alt: "cover_post", style: "width: 100%; height: 300px;", class: "object-fit-cover"%>
+    <% end %>   
+    
+    <div class="card-body p-2">
+    <% if I18n.locale == :en %>
+      <h2 class="card-title fs-4"> <%= post.title_en%></h2>
+    <% else %>
+    <h2 class="card-title fs-4"> <%= post.title_ar%></h2>
+    <% end %>
+    <span class="badge bg-success mb-1"><%= post.status%></span>
+    <% if I18n.locale == :en %>
+      <p class="text-card"><%= truncate(post.content_en.to_plain_text, length: 200) %></p>
+    <% else %>
+      <p class="text-card"><%= truncate(post.content_ar.to_plain_text, length: 200) %></p>
+    <% end %> 
+    <%= button_to 'Read Post', post_path(post), method: "get" , class: "btn btn-primary btn-sm m-2"%>
+  </div>
+  </div>

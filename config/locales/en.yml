@@ -17,5 +17,12 @@ en:
       ar: "Arabic"
       en: "English"
       language: Language
+    post:
+      back_to_posts: "Back to posts"
+      edit: "Edit"
+      delete: "Delete"
+      published_this_post: "Published this post"
+      published: "Published"
+      unpublished: "Unpublished"
   hello: "Hello world"
 

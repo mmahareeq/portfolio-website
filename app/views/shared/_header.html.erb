@@ -10,29 +10,25 @@
           <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.home') %></a>
         </li>
         <li class="nav-item">
-           <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.products') %></a>
+           <%= link_to t('global.navbar.products'), posts_path(post_type: "products"), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.projects') %></a>
+        <%= link_to t('global.navbar.projects'), posts_path(post_type: "projects"), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.services') %></a>
+        <%= link_to t('global.navbar.services'), posts_path(post_type: "services"), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.contact_us') %></a>
+        <%= link_to t('global.navbar.contact_us'), posts_path(post_type: "contact_us"), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= t('global.navbar.about_us') %></a>
+        <%= link_to t('global.navbar.about_us'), posts_path(post_type: "about_us"), class: "nav-link active" %>
+
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= t('global.navbar.language') %>  
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><%= t('global.navbar.ar') %></a></li>
-            <li><a class="dropdown-item" href="#"><%= t('global.navbar.en') %></a></li>
-          </ul>
-        </li>
+     
+        <%= form_tag(set_language_path, method: :post) do %>
+          <%= select_tag(:locale, options_for_select(I18n.available_locales.map { |locale| [t("locales.#{locale}"), locale] }, I18n.locale), onchange: 'this.form.submit();') %>
+        <% end %>
        
       </ul>
     </div>

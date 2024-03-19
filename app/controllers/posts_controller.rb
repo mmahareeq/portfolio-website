@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
+  
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [ :index, :show]
+  load_and_authorize_resource
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @post_type= params[:post_type]
+    @posts = Post.where(post_type: @post_type)
     render
   end
 
@@ -13,6 +17,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @post_type = params[:post_type]
     @post = Post.new
   end
 
@@ -25,6 +30,7 @@ class PostsController < ApplicationController
     puts params
     @post = Post.create(post_params)
     @post.user_id = current_user.id
+    @post.status = "unpublished"
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
@@ -56,6 +62,16 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end 
+
+  def change_status
+    @post = set_post
+
+    if @post.update(status: params[:status])
+      redirect_to @post, notice: "Post status changed successfully."
+    else
+      redirect_to @post, alert: "Failed to change post status."
     end
   end
 
