@@ -4,14 +4,12 @@ ar:
       post: "منشور"
     attributes:
       post:
-        title: "عنوان"
-        content: "محتوى"
-        status: "الحالة"
-        draft: "مسودة"
-        waiting: "قيد الانتظار"
+        title_ar: " (AR)العنوان"
+        title_en: "العنوان (EN)"
+        content_ar: "(AR) المحتوى"
+        content_en: "المحتوى(EN)"
         published: "تم نشرها"
         image: "صورة"
-        type: "نوع المنشور"
   global:
     navbar:
       alzahidi_company: "الزاهدي تك "
@@ -29,4 +27,5 @@ ar:
       edit: "تعديل"
       delete: "حذف"
       published_this_post: "نشر هذا المنشور"
+      create_post: "انشاء منشور جديد"
   hello: "مرحبا ايها العالم"

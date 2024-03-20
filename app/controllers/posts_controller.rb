@@ -7,22 +7,33 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @post_type= params[:post_type]
-    @posts = Post.where(post_type: @post_type)
+
+    if(!user_signed_in? || (user_signed_in? && current_user.authority != 'admin'))
+      @posts =   Post.where(post_type: @post_type, status: 'published')
+      puts @posts
+    else
+      @posts =   Post.where(post_type: @post_type)
+      puts @posts
+    end
     render
   end
 
   # GET /posts/1 or /posts/1.json
-  def show
+  def show 
   end
 
   # GET /posts/new
   def new
+    puts params
     @post_type = params[:post_type]
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    puts params
+    @post_type = params[:post_type]
+    @post = Post.find_by(id: params[:id])   
   end
 
   # POST /posts or /posts.json
@@ -44,6 +55,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    puts params
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }

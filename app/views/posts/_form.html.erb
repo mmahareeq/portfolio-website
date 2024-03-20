@@ -11,8 +11,9 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="field">
     <%= form.label :title_ar ,class: "form-label" %>
+    <span> * </span>
     <%= form.text_field :title_ar , class: "form-control"%>
   </div>
   <div>
@@ -21,22 +22,21 @@
 </div>
   <div class="field">
     <%= form.label :content_ar, class: "form-label" %>
+    <span> * </span>
     <%= form.rich_text_area :content_ar, class: "form-control" %>
   </div>
   <div class="field">
     <%= form.label :content_en, class: "form-label" %>
     <%= form.rich_text_area :content_en, class: "form-control" %>
   </div>
-  <%= form.hidden_field :post_type, value: @post_type %> 
-  <div>
-    <%= form.label :status, class: "form-label"%>
-    <%= form.select :status, [ 'draft', 'waiting', 'published'], class: "form-control" %>
-  </div>
+  <%= form.text_field :post_type, value: @post_type %> 
+
   <div class="field mb-2">
       <%= form.label :image, class: "form-label" %>
+      <span> * </span>
       <%= form.file_field :image, class: "form-control" %>
   </div>
   <div>
-    <%= form.submit "create post" %>
+    <%= form.submit t('global.post.create_post'), class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

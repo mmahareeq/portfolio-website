@@ -4,8 +4,12 @@ en:
       post: "Post"
     attributes:
       post:
-        title: "Title"
-        content: "Content"
+        title_ar: " Title (AR)"
+        title_en: "Title(EN)"
+        content_ar: "Content(AR)"
+        content_en: "Content(EN)"
+        published: "Published "
+        image: "Image"
   global:
     navbar:
       alzahidi_company: "ALZAHIDI TECH"
@@ -24,5 +28,6 @@ en:
       published_this_post: "Published this post"
       published: "Published"
       unpublished: "Unpublished"
+      create_post: "Create new post"
   hello: "Hello world"
 
