@@ -23,12 +23,18 @@
         </li>
         <li class="nav-item">
         <%= link_to t('global.navbar.about_us'), posts_path(post_type: "about_us"), class: "nav-link active" %>
-
+ 
         </li>
-     
-        <%= form_tag(set_language_path, method: :post) do %>
-          <%= select_tag(:locale, options_for_select(I18n.available_locales.map { |locale| [t("locales.#{locale}"), locale] }, I18n.locale), onchange: 'this.form.submit();') %>
+        <% if user_signed_in? && current_user.authority == "admin" %>
+        <li class="nav-item">
+        <%= link_to 'users', admin_users_path, class: "nav-link active" %>
+ 
+        </li>
         <% end %>
+       
+          <li><%= link_to 'English', switch_locale_path(locale: :en, redirect_to: request.fullpath) %></li>
+          <li><%= link_to 'Arabic', switch_locale_path(locale: :ar, redirect_to: request.fullpath) %></li>
+          
        
       </ul>
     </div>

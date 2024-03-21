@@ -8,8 +8,11 @@ class Ability
 
     if user && user.authority == "admin"
       can :manage, :all
-    else
+    elsif user && user.authority == "staff"
       # Default permissions for regular users
+      can [:read, :create, :update, :destroy], Post
+      cannot :change_status, Post
+    else
       can :read, Post
     end
     # Define abilities for the user here. For example:

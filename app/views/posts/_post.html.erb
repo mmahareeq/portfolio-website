@@ -16,6 +16,6 @@
     <% else %>
       <p class="text-card"><%= truncate(post.content_ar.to_plain_text, length: 200) %></p>
     <% end %> 
-    <%= button_to 'Read Post', post_path(post), method: "get" , class: "btn btn-primary btn-sm m-2"%>
+    <%= button_to 'Read Post', post_path(id: post.id), method: "get" , class: "btn btn-primary btn-sm m-2"%>
   </div>
   </div>

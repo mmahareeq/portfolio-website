@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def index
     @post_type= params[:post_type]
 
-    if(!user_signed_in? || (user_signed_in? && current_user.authority != 'admin'))
+    if(!user_signed_in? || (user_signed_in? && current_user.authority != 'admin' && current_user.authority != 'staff'))
       @posts =   Post.where(post_type: @post_type, status: 'published')
       puts @posts
     else
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     @post.status = "unpublished"
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to post_url(id: @post.id), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,21 +69,21 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    post_type = @post.post_type
     @post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url(post_type: post_type), notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end 
 
   def change_status
     @post = set_post
-
     if @post.update(status: params[:status])
-      redirect_to @post, notice: "Post status changed successfully."
+      redirect_to post_url(@post), notice: "Post status changed successfully."
     else
-      redirect_to @post, alert: "Failed to change post status."
+      redirect_to post_url(@post), alert: "Failed to change post status."
     end
   end
 

@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <div>  
-  <%= link_to 'Back to posts', posts_path, method: "get", class:"btn btn-outline-dark btn-sm me-2"%>
+  <%= link_to 'Back to posts', posts_path(post_type: @post.post_type), method: "get", class:"btn btn-outline-dark btn-sm me-2"%>
 
   <% if I18n.locale == :en %>
     <h2 class="card-title fs-3"> <%= @post.title_en.present? ? @post.title_en : @post.title_ar%></h2>
@@ -22,8 +22,8 @@
     <p class="text-card"><%= @post.content_ar %></p>
   <% end %> 
   <div class="d-flex">
-    <%= button_to t('global.post.published_this_post'), change_status_post_path(@post, status: "published"), method: "patch" %> |
-    <%= link_to t('global.post.edit'), edit_post_path(@post, post_type: @post.post_type), method: "get" , class: "btn btn-primary btn-sm me-2" %> |
+    <%= button_to t('global.post.published_this_post'), change_status_post_path(id: @post.id, status: "published"), method: "patch" %> |
+    <%= link_to t('global.post.edit'), edit_post_path(id: @post.id, post_type: @post.post_type), method: "get" , class: "btn btn-primary btn-sm me-2" %> |
     <%= button_to t('global.post.delete'), @post, method: "delete", data: {turbo_confirm: 'Are you sure? '}, class: "btn btn-danger btn-sm" %>
   </div>
 </div>
