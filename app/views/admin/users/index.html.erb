@@ -1,6 +1,6 @@
 <h1> all users</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Email</th>
@@ -14,8 +14,10 @@
         <td><%= user.email %></td>
         <td><%= user.authority %></td>
         <td>
-        <%= button_to 'staff', change_authority_admin_user_path(id: user.id, authority: "staff"), method: "patch" , class: "btn btn-primary btn-sm m-2"%> | 
-        <%= button_to 'visitor', change_authority_admin_user_path(id: user.id, authority: "visitor"), method: "patch" , class: "btn btn-primary btn-sm m-2"%>
+          <div class="d-flex  ">
+            <%= button_to 'staff', change_authority_admin_user_path(id: user.id, authority: "staff"), method: "patch" , class: "btn btn-primary btn-sm m-2"%> | 
+            <%= button_to 'visitor', change_authority_admin_user_path(id: user.id, authority: "visitor"), method: "patch" , class: "btn btn-primary btn-sm m-2"%>  
+          </div>
         </td>
       </tr>
     <% end %>

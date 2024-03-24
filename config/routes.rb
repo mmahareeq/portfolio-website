@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-   
-
+  
 
   scope "(:locale)", :locale => /en|ar/ do
     root "posts#index"

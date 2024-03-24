@@ -21,9 +21,15 @@
   <% else %>
     <p class="text-card"><%= @post.content_ar %></p>
   <% end %> 
-  <div class="d-flex">
-    <%= button_to t('global.post.published_this_post'), change_status_post_path(id: @post.id, status: "published"), method: "patch" %> |
-    <%= link_to t('global.post.edit'), edit_post_path(id: @post.id, post_type: @post.post_type), method: "get" , class: "btn btn-primary btn-sm me-2" %> |
-    <%= button_to t('global.post.delete'), @post, method: "delete", data: {turbo_confirm: 'Are you sure? '}, class: "btn btn-danger btn-sm" %>
-  </div>
+  <% if user_signed_in? && (current_user.authority == "admin" || current_user.authority == "staff" )%>
+    <div class="d-flex">
+      <% if @post.status != 'published' %> 
+        <%= button_to t('global.post.published_this_post'), change_status_post_path(id: @post.id, status: "published"), method: "patch" %> 
+      <% else %>
+        <%= button_to t('global.post.unpublished_this_post'), change_status_post_path(id: @post.id, status: "unpublished"), method: "patch" %> |
+      <% end %>
+      <%= link_to t('global.post.edit'), edit_post_path(id: @post.id, post_type: @post.post_type), method: "get" , class: "btn btn-primary btn-sm me-2" %> |
+      <%= button_to t('global.post.delete'), @post, method: "delete", data: {turbo_confirm: 'Are you sure? '}, class: "btn btn-danger btn-sm" %>
+    </div>
+  <% end %>
 </div>

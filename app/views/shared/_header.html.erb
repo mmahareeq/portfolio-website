@@ -32,8 +32,8 @@
         </li>
         <% end %>
        
-          <li><%= link_to 'English', switch_locale_path(locale: :en, redirect_to: request.fullpath) %></li>
-          <li><%= link_to 'Arabic', switch_locale_path(locale: :ar, redirect_to: request.fullpath) %></li>
+          <li><%= link_to 'EN', root_path(locale: :en) %></li> | 
+          <li><%= link_to 'AR', root_path(locale: :ar) %></li>
           
        
       </ul>

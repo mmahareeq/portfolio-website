@@ -2,7 +2,9 @@
 
 <div class="d-flex justify-content-between">
   <h1><%= @post_type? t("global.navbar.#@post_type") : t("global.navbar.home") %></h1>
-  <%= link_to 'Add New Post', new_post_path(post_type: @post_type), method: "get", class: "btn btn-primary btn-sm"%>
+  <% if user_signed_in? && (current_user.authority == "admin" || current_user.authority == "staff" )%>
+    <%= link_to 'Add New Post', new_post_path(post_type: @post_type), method: "get", class: "btn btn-primary btn-sm"%>
+  <% end %>
 </div>
 <div class="row">
   <% if @posts.empty? %>
