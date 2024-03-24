@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     puts params
     @post_type = params[:post_type]
     @post = Post.new
+    render
   end
 
   # GET /posts/1/edit

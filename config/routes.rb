@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
 
-  scope "(:locale)", :locale => /en|ar/ do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "posts#index"
+
     devise_for :users, controllers: {
       registrations: 'users/registrations'
     }

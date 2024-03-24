@@ -19,8 +19,9 @@ ar:
       projects: "مشاريعنا"
       contact_us: "تواصل معنا"
       about_us: "من نحن"
-      ar: "عربي"
-      en: "انجليزي"
+      users: "المستخدمين"
+      ar: "Ar"
+      en: "En"
       language: اللغة
     post:
       back_to_posts: "الرجوع"

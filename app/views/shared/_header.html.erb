@@ -27,14 +27,21 @@
         </li>
         <% if user_signed_in? && current_user.authority == "admin" %>
         <li class="nav-item">
-        <%= link_to 'users', admin_users_path, class: "nav-link active" %>
+        <%= link_to t('global.navbar.users'), admin_users_path, class: "nav-link active" %>
  
         </li>
         <% end %>
        
-          <li><%= link_to 'EN', root_path(locale: :en) %></li> | 
-          <li><%= link_to 'AR', root_path(locale: :ar) %></li>
-          
+         
+          <% I18n.available_locales.each do |locale| %>
+            <li>
+              <% if I18n.locale == locale %>
+                <%= t(locale, scope: 'global.navbar') %> | 
+              <% else %>
+                <%= link_to t(locale, scope: 'global.navbar'), url_for(locale: locale, params: request.query_parameters) %>
+              <% end %>
+            </li>
+          <% end %>
        
       </ul>
     </div>

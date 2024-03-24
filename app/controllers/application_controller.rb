@@ -1,22 +1,18 @@
 class ApplicationController < ActionController::Base
 
-     before_action :set_locale  
-    
+    before_action :set_locale  
+   
     def default_url_options
       { locale: I18n.locale }
     end
 
     def set_locale
-      puts params[:locale]
       I18n.locale = extract_locale_from_tld  || I18n.default_locale
-    #  redirect_to params[:redirect_to] || root_path
+      direction = (I18n.locale == :ar) ? "rtl" : "ltr"
+      puts I18n.locale
+      puts direction
     end
     
-
-    def switch_locale
-      redirect_to params[:redirect_to] || root_path
-    end
-
     def extract_locale_from_tld
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale.to_sym : nil

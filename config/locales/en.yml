@@ -18,8 +18,9 @@ en:
       projects: "Projects"
       contact_us: "Contact Us"
       about_us: "About Us"
-      ar: "Arabic"
-      en: "English"
+      users: "Users"
+      ar: "Ar"
+      en: "En"
       language: Language
     post:
       back_to_posts: "Back to posts"
