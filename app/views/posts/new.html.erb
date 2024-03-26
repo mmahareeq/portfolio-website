@@ -1,6 +1,9 @@
-<h1> New <%= @post_type %></h1>
-<%= render "form", post: @post %>
-<br>
-<div>
-  <%= link_to t("global.post.back_to_posts"), posts_path ,class:"btn btn-outline-dark btn-sm"%>
+
+<div class="container-fluid">
+  <h1> New <%= @post_type %></h1>
+  <%= render "form", post: @post %>
+  <br>
+  <div>
+    <%= link_to t("global.post.back_to_posts"), posts_path ,class:"btn btn-outline-dark btn-sm"%>
+  </div>
 </div>

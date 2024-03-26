@@ -12,9 +12,10 @@
     </head>
 
   <body style="direction: <%= (I18n.locale == :ar) ? 'rtl' : 'ltr' %>;">
-  <div class="container">
+  <div >
     <%= render partial: "shared/header" %>
     <%= yield %>
+    <%= render partial: "shared/footer" %>
   </div>
    
   </body>

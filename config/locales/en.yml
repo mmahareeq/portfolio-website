@@ -22,13 +22,22 @@ en:
       ar: "Ar"
       en: "En"
       language: Language
+      log_out: "Logout"
+      log_in: "login"
+      sign_up: "signup"
     post:
       back_to_posts: "Back to posts"
       edit: "Edit"
       delete: "Delete"
-      published_this_post: "Published this post"
+      products: "Product"
+      services: "Service"
+      projects: "Project"
       published: "Published"
       unpublished: "Unpublished"
       create_post: "Create new post"
+      editing: "Editing"
+      edit_post: "Edit the post"
+      show_this_post: "Show this post"
+      required_fields_message: "* indicate fields are required"
   hello: "Hello world"
 
