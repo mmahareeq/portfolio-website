@@ -7,19 +7,33 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @post_type= params[:post_type]
-
-    if(!user_signed_in? || (user_signed_in? && current_user.authority != 'admin' && current_user.authority != 'staff'))
-      @posts =   Post.where(post_type: @post_type, status: 'published')
-      puts @posts
+    if @post_type
+      if(!user_signed_in? || (user_signed_in? && current_user.authority != 'admin' && current_user.authority != 'staff'))
+        @posts = Post.where(post_type: @post_type, status: 'published')
+        puts @posts
+      else
+        @posts = Post.where(post_type: @post_type)
+        puts @posts
+      end
     else
-      @posts =   Post.where(post_type: @post_type)
-      puts @posts
+      puts "home"
+      home
     end
+
     render
   end
+  # Get Home 
+  def home
+    @products_posts = Post.where(post_type: "products", status: 'published').limit(3)
+    @services_posts = Post.where(post_type: "services" , status: 'published').limit(3)
+    @projects_posts = Post.where(post_type: "projects", status: 'published').limit(3)
+    puts @products_posts
 
+  end
   # GET /posts/1 or /posts/1.json
   def show 
+   
+    
   end
 
   # GET /posts/new

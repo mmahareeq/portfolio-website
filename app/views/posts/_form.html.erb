@@ -31,6 +31,9 @@
     <%= form.label :content_en, class: "form-label" %>
     <%= form.rich_text_area :content_en, class: "form-control" %>
   </div>
+  <%if @post.persisted? %>
+  <%= image_tag @post.image, alt: "Example Image", class: "img-fluid", style: "width: 300px; height: 300px;"%>
+  <% end %>
   <div class="field mb-2">
       <%= form.label :image, class: "form-label" %>
       <span class="mark-required"> * </span>

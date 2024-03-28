@@ -18,7 +18,7 @@
 }
 
 .limit-text-height {
-    height: 9rem; /* Approximate height for 150 words */
+    height: 6rem; /* Approximate height for 150 words */
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -26,3 +26,9 @@
 .mark-required{
     color: rgb(150, 15, 15);
 }
+
+.main-content {
+   
+    min-height: calc(100vh - 10rem);
+   
+  }

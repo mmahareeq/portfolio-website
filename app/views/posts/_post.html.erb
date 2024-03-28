@@ -5,19 +5,18 @@
     <% end %>   
     
     <div class="card-body p-2 h-100">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex ">
       <% if I18n.locale == :en %>
         <h2 class="card-title fs-4"> <%= post.title_en.present? ? post.title_en : post.title_ar%></h2>
       <% else %>
         <h2 class="card-title fs-4"> <%= post.title_ar%></h2>
       <% end %>
-      <span class="badge bg-success mb-1 custom-height align-self-center  "><%= post.status%></span>
     </div>
     <div class="limit-text-height">
       <% if I18n.locale == :en %>
-        <p class="card-text"><%= truncate(post.content_en.present? ? post.content_en.to_plain_text: post.content_ar.to_plain_text, length: 150) %></p>
+        <p class="card-text"><%= truncate(post.content_en.present? ? post.content_en.to_plain_text: post.content_ar.to_plain_text, length: 100) %></p>
       <% else %>
-         <p class="card-text"><%= truncate(post.content_ar.to_plain_text, length: 200) %></p>
+         <p class="card-text"><%= truncate(post.content_ar.to_plain_text, length: 100) %></p>
       <% end %> 
     
     </div>

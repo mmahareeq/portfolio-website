@@ -14,7 +14,9 @@
   <body style="direction: <%= (I18n.locale == :ar) ? 'rtl' : 'ltr' %>;">
   <div >
     <%= render partial: "shared/header" %>
+    <div class="container main-content ">
     <%= yield %>
+    </div>
     <%= render partial: "shared/footer" %>
   </div>
    

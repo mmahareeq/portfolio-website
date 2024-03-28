@@ -34,7 +34,9 @@ en:
       services: "Service"
       projects: "Project"
       published: "Published"
+      publish_this_post: "Publish"
       unpublished: "Unpublished"
+      unpublished_this_post: "Unpublish"
       create_post: "Create new post"
       editing: "Editing"
       edit_post: "Edit the post"
@@ -44,5 +46,17 @@ en:
       change_post_status_success: "Post status changed successfully."
       change_post_status_failed: "Failed to change post status."
       post_updated_success: "Post was successfully updated."
+      created_at: " Created at"
+      created_by: " Created by"
+    admin:
+      users: 
+        all_users: "All users"
+        email: "Email"
+        name: "Name"
+        authority: "Authority"
+        change_authority: "Change Authority"
+        admin: "Admin"
+        staff: "Staff"
+        visitor: "Vistior"
   hello: "Hello world"
 

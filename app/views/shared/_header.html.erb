@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active fw-light" aria-current="page" href="#"><%= t('global.navbar.home') %></a>
+          <%= link_to t('global.navbar.home'), posts_path, class: "nav-link active fw-light" %>
         </li>
         <li class="nav-item">
            <%= link_to t('global.navbar.products'), posts_path(post_type: "products"), class: "nav-link active fw-light" %>

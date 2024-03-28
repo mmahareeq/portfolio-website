@@ -6,29 +6,78 @@
   </div>
 <% end %>
 
-<div class="container-fluid d-flex justify-content-between">
-  <div class="align-self-center">
+
+<% if !!@post_type %>
+  
+  <div class=" d-flex justify-content-between mb-4">
+   
     <h1 class="fs-2"> <%= @post_type? t("global.navbar.#@post_type") : t("global.navbar.home") %></h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odionec odio.
-    Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum</p>
+   
     <% if user_signed_in? && (current_user.authority == "admin" || current_user.authority == "staff" )%>
-      <%= link_to t('global.post.create_post'), new_post_path(post_type: @post_type), method: "get", class: "btn btn-primary btn-sm bg-primary"%>
+      <%= link_to t('global.post.create_post'), new_post_path(post_type: @post_type), method: "get", class: "btn btn-primary btn-sm bg-primary custom-height"%>
     <% end %>
+
   </div>
-  <%= image_tag '3d-render-code-testing-functional-test-usability.jpg', style: "width:700px; height: 300px;"  %>
- 
-</div>
-<div class="row container-fluid ">
-  <% if @posts.empty? %>
+  <div >
+    <% if @posts.empty? %>
         <p class="text-center fs-4"> there are no <%= @post_type %> </p>
-  <% else %>
-  <div id="posts" class="d-flex align-items-stretch">
-    <% @posts.each do |post| %>
-      <%= link_to post_path(post) , class: "col-3 me-2 text-decoration-none" do %>
-        <%= render post %>
-      <% end %>
+    <% else %>
+      <div id="posts" class="d-flex align-items-stretch">
+        <% @posts.each do |post| %>
+          <%= link_to post_path(post) , class: "col-3 me-2 text-decoration-none" do %>
+            <%= render post %>
+          <% end %>
+        <% end %>
+      </div>
+
     <% end %>
   </div>
+<% else %> 
+  <h1> <%= t('global.navbar.home') %> </h1>
+  <div >
+    
+    <% if !@services_posts.empty? %>
+      <h1>  <%= link_to t('global.navbar.services'), posts_path(post_type: "services"), class: "nav-link active fw-light" %> </h1>
+      <div id="posts" class="d-flex align-items-stretch">
+        <% @services_posts.each do |post| %>
+          <%= link_to post_path(post) , class: "col-3 me-2 text-decoration-none" do %>
+            <%= render post %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div >
+ 
+
+  <% if !@projects_posts.empty? %>
+    <h1>  <%= link_to t('global.navbar.projects'), posts_path(post_type: "projects"), class: "nav-link active fw-light" %></h1>
+    <div id="posts" class="d-flex align-items-stretch">
+      <% @projects_posts.each do |post| %>
+        <%= link_to post_path(post) , class: "col-3 me-2 text-decoration-none" do %>
+          <%= render post %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  <div >
+ 
+  <% if !@products_posts.empty? %>
+    <h1>  <%= link_to t('global.navbar.products'), posts_path(post_type: "products"), class: "nav-link active fw-light" %></h1> 
+    <div id="posts" class="d-flex align-items-stretch">
+      <% @products_posts.each do |post| %>
+        <%= link_to post_path(post) , class: "col-3 me-2 text-decoration-none" do %>
+          <%= render post %>
+        <% end %>
+      <% end %>
+    </div>
 
   <% end %>
-</div>
+  </div>
+ 
+
+
+<% end %> 
+
+
