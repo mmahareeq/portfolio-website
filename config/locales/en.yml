@@ -28,6 +28,7 @@ en:
     post:
       back_to_posts: "Back to posts"
       edit: "Edit"
+      new: "New"
       delete: "Delete"
       products: "Product"
       services: "Service"
@@ -39,5 +40,9 @@ en:
       edit_post: "Edit the post"
       show_this_post: "Show this post"
       required_fields_message: "* indicate fields are required"
+      post_destroy_message: "Post was successfully destroyed."
+      change_post_status_success: "Post status changed successfully."
+      change_post_status_failed: "Failed to change post status."
+      post_updated_success: "Post was successfully updated."
   hello: "Hello world"
 

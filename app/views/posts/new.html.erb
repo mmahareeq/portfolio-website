@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-  <h1> New <%= @post_type %></h1>
+  <h1> <%= t("global.post.#{@post_type}") %> <%= t("global.post.new") %> </h1>
   <%= render "form", post: @post %>
   <br>
   <div>

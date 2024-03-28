@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     @post.status = "unpublished"
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        format.html { redirect_to post_url(@post), notice: I18n.t("global.post.post_updated_success" )}
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     @post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_url(post_type: post_type), notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url(post_type: post_type), notice: I18n.t("global.post.post_destroy_message") }
       format.json { head :no_content }
     end
   end 
@@ -83,9 +83,9 @@ class PostsController < ApplicationController
   def change_status
     @post = set_post
     if @post.update(status: params[:status])
-      redirect_to post_url(@post), notice: "Post status changed successfully."
+      redirect_to post_url(@post), notice: I18n.t("global.post.change_post_status_success")
     else
-      redirect_to post_url(@post), alert: "Failed to change post status."
+      redirect_to post_url(@post), alert: I18n.t("global.post.change_post_status_failed")
     end
   end
 

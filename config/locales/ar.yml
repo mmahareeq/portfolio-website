@@ -29,6 +29,7 @@ ar:
     post:
       back_to_posts: "رجوع"
       edit: "تعديل"
+      new: "جديد"
       products: "منتج"
       services: "خدمة"
       projects: "مشروع"
@@ -40,4 +41,8 @@ ar:
       edit_post: "تعديل المنشور"
       show_this_post: "عرض المنشور"
       required_fields_message: "تشير ان هذه الحقول مطلوبة * "
+      post_destroy_message: "تم حذف المنشور بنجاح"
+      change_post_status_success: "تم تغيير حالة منشور بنجاح"
+      change_post_status_failed: "فشل في تحديث حالة المنشور"
+      post_updated_success: "تم تحديث المنشور بنجاح"
   hello: "مرحبا ايها العالم"
